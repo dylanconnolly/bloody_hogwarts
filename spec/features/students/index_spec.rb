@@ -30,6 +30,6 @@ RSpec.describe "student index page" do
 
     visit '/students'
 
-    page.body.index(bob.name) < page.body.index(tom.name)
+    page.body.index(bob.name).should < page.body.index(tom.name)
   end
 end

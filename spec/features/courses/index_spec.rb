@@ -31,4 +31,16 @@ RSpec.describe "course index page" do
 
     expect(page).to have_content("Potions: 3")
   end
+
+  it "lists the courses alphabetically" do
+    potions = Course.create(name: "Potions")
+    herbology = Course.create(name: "Herbology")
+    dark_arts = Course.create(name: "Defense Against the Dark Arts")
+    hagrid = Course.create(name: "Waste Time with Hagrid")
+
+    page.body.index(dark_arts.name).should < page.body.index(herbology.name)
+    page.body.index(herbology.name).should < page.body.index(potions.name)
+    page.body.index(potions.name).should < page.body.index(hagrid.name)
+
+  end
 end
