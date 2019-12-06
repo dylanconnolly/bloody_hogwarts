@@ -23,4 +23,13 @@ RSpec.describe "student index page" do
 
     expect(page).to have_content("Average age: 13")
   end
+
+  it "displays the students in alphabetical order" do
+    tom = Student.create(name: "Tom", age: 14, house: "Hufflepuff")
+    bob = Student.create(name: "Bob", age: 12, house: "Ravenclaw")
+
+    visit '/students'
+
+    page.body.index(bob.name) < page.body.index(tom.name)
+  end
 end
