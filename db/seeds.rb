@@ -3,5 +3,20 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+potions = Course.create(name: "Potions")
+herbology = Course.create(name: "Herbology")
+dark_arts = Course.create(name: "Defense Against the Dark Arts")
+hagrid = Course.create(name: "Waste Time with Hagrid")
+
+bob = Student.create(name: "Bob", age: 12, house: "Ravenclaw")
+tom = Student.create(name: "Tom", age: 14, house: "Hufflepuff")
+sam = Student.create(name: "Sam", age: 17, house: "Slytherin")
+
+potions.students << bob
+dark_arts.students << bob
+hagrid.students << bob
+potions.students << tom
+herbology.students << tom
+hagrid.students << tom
+
+potions.students << sam
