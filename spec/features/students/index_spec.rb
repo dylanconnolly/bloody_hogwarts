@@ -14,4 +14,13 @@ RSpec.describe "student index page" do
     expect(page).to have_content("14")
     expect(page).to have_content("Hufflepuff")
   end
+
+  it "displays the average age of the students" do
+    bob = Student.create(name: "Bob", age: 12, house: "Ravenclaw")
+    tom = Student.create(name: "Tom", age: 14, house: "Hufflepuff")
+
+    visit '/students'
+
+    expect(page).to have_content("Average age: 13")
+  end
 end
